@@ -1,4 +1,4 @@
-package _9999
+package packagetbku
 
 import (
 	"fmt"
@@ -11,7 +11,7 @@ import (
 func TestInsertAyam(t *testing.T) {
 	jenis := "Mangon"
 	umur := "8"
-	bobot := "Amsterdam"
+	bobot := "3"
 	tinggi := "60"
 	jenis_kelamin := "jantan"
 	harga := "250000"
@@ -35,7 +35,7 @@ func TestGetAyamFromID(t *testing.T) {
 	fmt.Println(biodata)
 }
 
-func TestGetAll(t *testing.T) {
+func TestGetAllAyam(t *testing.T) {
 	data := module.GetAllAyam(module.MongoConn, "ayamku")
 	fmt.Println(data)
 }
