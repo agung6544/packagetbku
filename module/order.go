@@ -16,7 +16,7 @@ func InsertOrder(db *mongo.Database, col string, ayam model.Ayam, nama_pemesan s
 	orderku := bson.M{
 		"ayam":    ayam,
 		"nama_pemesan":     nama_pemesan,
-		"alamat":     alamat,
+		"alamat":    alamat,
 		"tanggal_pemesanan": primitive.NewDateTimeFromTime(time.Now().UTC()),
 	}
 	result, err := db.Collection(col).InsertOne(context.Background(), orderku)
@@ -59,7 +59,7 @@ func UpdateOrder(db *mongo.Database, col string, id primitive.ObjectID, ayam mod
 	filter := bson.M{"_id": id}
 	update := bson.M{
 		"$set": bson.M{
-			"ayam":    ayam,
+		"ayam":    ayam,
 		"nama_pemesan":     nama_pemesan,
 		"alamat":     alamat,
 		},
