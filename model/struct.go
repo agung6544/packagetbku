@@ -10,7 +10,7 @@ type Ayam struct {
 	Umur		   string             `bson:"umur,omitempty" json:"umur,omitempty"`
 	Bobot          string             `bson:"bobot,omitempty" json:"bobot,omitempty"`
 	Tinggi         string             `bson:"tinggi,omitempty" json:"tinggi,omitempty"`
-	Jenis_Kelamin  string             `bson:"jeniskelamin,omitempty" json:"jeniskelamin,omitempty"`
+	Jenis_Kelamin  string             `bson:"jenis_kelamin,omitempty" json:"jenis_kelamin,omitempty"`
 	Harga		   string             `bson:"harga,omitempty" json:"harga,omitempty"`
 }
 
