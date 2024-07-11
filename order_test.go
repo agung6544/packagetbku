@@ -12,14 +12,14 @@ import (
 func TestInsertOrder(t *testing.T) {
 	ayam := model.Ayam{
 		Jenis:     "Mangon",
-		Umur: "8",
-		Bobot:   "3",
-		Tinggi:  "60",
+		Umur: 8,
+		Bobot:   3,
+		Tinggi:  60,
 		Jenis_Kelamin:  "jantan",
-		Harga:  "250000",
+		Harga:  250000,
 	}
 	nama_pemesan := "yudha"
-	alamat := "8"
+	alamat := "Gunungsitoli"
 	insertedID, err := module.InsertOrder(module.MongoConn, "orderku", ayam, nama_pemesan, alamat)
 	if err != nil {
 		t.Errorf("Error inserting data: %v", err)

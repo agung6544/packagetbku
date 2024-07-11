@@ -29,7 +29,7 @@ func InsertOneDoc(db string, collection string, doc interface{}) (insertedID int
 	return insertResult.InsertedID
 }
 
-func InsertAyam(db *mongo.Database, col string, jenis string, umur string, bobot string, tinggi string, jenis_kelamin string, harga string) (insertedID primitive.ObjectID, err error) {
+func InsertAyam(db *mongo.Database, col string, jenis string, umur int, bobot int, tinggi int, jenis_kelamin string, harga int) (insertedID primitive.ObjectID, err error) {
 	ayamku := bson.M{
 		"jenis":    jenis,
 		"umur":     umur,
@@ -48,9 +48,9 @@ func InsertAyam(db *mongo.Database, col string, jenis string, umur string, bobot
 }
 
 func GetAllAyam(db *mongo.Database, col string) (data []model.Ayam) {
-	karyawan := db.Collection(col)
+	ayamku := db.Collection(col)
 	filter := bson.M{}
-	cursor, err := karyawan.Find(context.TODO(), filter)
+	cursor, err := ayamku.Find(context.TODO(), filter)
 	if err != nil {
 		fmt.Println("GetALLData :", err)
 	}
@@ -62,9 +62,9 @@ func GetAllAyam(db *mongo.Database, col string) (data []model.Ayam) {
 }
 
 func GetAyamFromID(_id primitive.ObjectID, db *mongo.Database, col string) (ayam model.Ayam, errs error) {
-	karyawan := db.Collection(col)
+	ayamku := db.Collection(col)
 	filter := bson.M{"_id": _id}
-	err := karyawan.FindOne(context.TODO(), filter).Decode(&ayam)
+	err := ayamku.FindOne(context.TODO(), filter).Decode(&ayam)
 	if err != nil {
 		if errors.Is(err, mongo.ErrNoDocuments) {
 			return ayam, fmt.Errorf("no data found for ID %s", _id)
@@ -99,10 +99,10 @@ func UpdateAyam(db *mongo.Database, col string, id primitive.ObjectID, jenis str
 }
 
 func DeleteAyamByID(_id primitive.ObjectID, db *mongo.Database, col string) error {
-	karyawan := db.Collection(col)
+	ayamku := db.Collection(col)
 	filter := bson.M{"_id": _id}
 
-	result, err := karyawan.DeleteOne(context.TODO(), filter)
+	result, err := ayamku.DeleteOne(context.TODO(), filter)
 	if err != nil {
 		return fmt.Errorf("error deleting data for ID %s: %s", _id, err.Error())
 	}

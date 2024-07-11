@@ -7,11 +7,11 @@ import (
 type Ayam struct {
 	ID             primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
 	Jenis          string             `bson:"jenis,omitempty" json:"jenis,omitempty"`
-	Umur		   string             `bson:"umur,omitempty" json:"umur,omitempty"`
-	Bobot          string             `bson:"bobot,omitempty" json:"bobot,omitempty"`
-	Tinggi         string             `bson:"tinggi,omitempty" json:"tinggi,omitempty"`
+	Umur		   int             `bson:"umur,omitempty" json:"umur,omitempty"`
+	Bobot          int             `bson:"bobot,omitempty" json:"bobot,omitempty"`
+	Tinggi         int             `bson:"tinggi,omitempty" json:"tinggi,omitempty"`
 	Jenis_Kelamin  string             `bson:"jenis_kelamin,omitempty" json:"jenis_kelamin,omitempty"`
-	Harga		   string             `bson:"harga,omitempty" json:"harga,omitempty"`
+	Harga		   int             `bson:"harga,omitempty" json:"harga,omitempty"`
 }
 
 type Order struct {

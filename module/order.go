@@ -29,9 +29,9 @@ func InsertOrder(db *mongo.Database, col string, ayam model.Ayam, nama_pemesan s
 }
 
 func GetAllOrder(db *mongo.Database, col string) (data []model.Order) {
-	karyawan := db.Collection(col)
+	orderku := db.Collection(col)
 	filter := bson.M{}
-	cursor, err := karyawan.Find(context.TODO(), filter)
+	cursor, err := orderku.Find(context.TODO(), filter)
 	if err != nil {
 		fmt.Println("GetALLData :", err)
 	}
@@ -43,9 +43,9 @@ func GetAllOrder(db *mongo.Database, col string) (data []model.Order) {
 }
 
 func GetOrderFromID(_id primitive.ObjectID, db *mongo.Database, col string) (order model.Order, errs error) {
-	karyawan := db.Collection(col)
+	orderku := db.Collection(col)
 	filter := bson.M{"_id": _id}
-	err := karyawan.FindOne(context.TODO(), filter).Decode(&order)
+	err := orderku.FindOne(context.TODO(), filter).Decode(&order)
 	if err != nil {
 		if errors.Is(err, mongo.ErrNoDocuments) {
 			return order, fmt.Errorf("no data found for ID %s", _id)
@@ -77,10 +77,10 @@ func UpdateOrder(db *mongo.Database, col string, id primitive.ObjectID, ayam mod
 }
 
 func DeleteOrderByID(_id primitive.ObjectID, db *mongo.Database, col string) error {
-	karyawan := db.Collection(col)
+	orderku := db.Collection(col)
 	filter := bson.M{"_id": _id}
 
-	result, err := karyawan.DeleteOne(context.TODO(), filter)
+	result, err := orderku.DeleteOne(context.TODO(), filter)
 	if err != nil {
 		return fmt.Errorf("error deleting data for ID %s: %s", _id, err.Error())
 	}

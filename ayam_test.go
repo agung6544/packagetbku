@@ -9,12 +9,12 @@ import (
 )
 
 func TestInsertAyam(t *testing.T) {
-	jenis := "Mangon"
-	umur := "8"
-	bobot := "3"
-	tinggi := "60"
-	jenis_kelamin := "jantan"
-	harga := "250000"
+	jenis := "MangonSuper"
+	umur := 8
+	bobot := 3
+	tinggi := 60
+	jenis_kelamin := "Jantan"
+	harga := 250000
 	insertedID, err := module.InsertAyam(module.MongoConn, "ayamku", jenis, umur, bobot, tinggi, jenis_kelamin, harga)
 	if err != nil {
 		t.Errorf("Error inserting data: %v", err)
