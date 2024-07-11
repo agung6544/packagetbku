@@ -74,7 +74,7 @@ func GetAyamFromID(_id primitive.ObjectID, db *mongo.Database, col string) (ayam
 	return ayam, nil
 }
 
-func UpdateAyam(db *mongo.Database, col string, id primitive.ObjectID, jenis string, umur string, bobot string, tinggi string, jenis_kelamin string, harga string) (err error) {
+func UpdateAyam(db *mongo.Database, col string, id primitive.ObjectID, jenis string, umur int, bobot int, tinggi int, jenis_kelamin string, harga int) (err error) {
 	filter := bson.M{"_id": id}
 	update := bson.M{
 		"$set": bson.M{
